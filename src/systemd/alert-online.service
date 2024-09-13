@@ -1,0 +1,14 @@
+[Unit]
+Description=Discord - Server is online
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+Environment="DISCORD_WEBHOOK=https://discord.com/api/webhooks/1283799323057848490/1mrpYQGBaAKkxwvoORaeTsy5QTShn6JuYEDcp2w1Yn9SMdcvMdsvDRfuqTAymVW89X35"
+ExecStart=/opt/send-online.sh
+ExecStop=/opt/send-shutdown.sh
+
+[Install]
+WantedBy=multi-user.target
